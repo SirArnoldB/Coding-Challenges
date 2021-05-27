@@ -85,5 +85,5 @@ def tournamentWinner(competitions, results):
 def updateScores(team, points, team_scores):
 	if team not in team_scores:
 		team_scores[team] = 0
-	
+	# update the score 
 	team_scores[team] += points
