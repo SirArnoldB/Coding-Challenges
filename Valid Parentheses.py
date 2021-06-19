@@ -95,7 +95,7 @@ class Solution(object):
         # For every bracket in the expression.
         for char in s:
 
-            # If the character is an closing bracket
+            # If the character is a closing bracket
             if char in mapping:
 
                 # Pop the topmost element from the stack, if it is non empty
