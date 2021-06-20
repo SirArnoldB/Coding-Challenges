@@ -17,7 +17,7 @@ Source: https://leetcode.com/problems/middle-of-the-linked-list/
     >>> Input: [1,2,3,4,5,6]
     >>> Output: Node 4 from this list (Serialization: [4,5,6])
     >>> Since the list has two middle nodes with values 3 and 4, we return the second one.
- 
+
 # Note: The number of nodes in the given list will be between 1 and 100.
 """
 
