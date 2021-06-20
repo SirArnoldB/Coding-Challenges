@@ -1,5 +1,5 @@
 '''
-Find The Dulicate Number
+Find The Duplicate Number
 ------------------------
 Source: https://leetcode.com/problems/find-the-duplicate-number/
 '''
