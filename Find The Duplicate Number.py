@@ -46,7 +46,8 @@ Solution 1 : Floyd's Tortoise and Hare (Cycle Detection)
 
     >>> The tortoise started from zero, so its position after FF steps is F.
 
-    >>> The hare started at the intersection point F + a = nC, so its position after F steps is nC + +F, that is         the same point as F.
+    >>> The hare started at the intersection point F + a = nC, so its position after F steps is nC + +F, 
+    >>> that is the same point as F.
 
     >>> So the tortoise and the (slowed down) hare will meet at the entrance of the cycle.  
 
