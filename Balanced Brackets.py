@@ -20,7 +20,7 @@ Source: https://www.algoexpert.io/questions/Balanced%20Brackets
 '''
 Solution
 '''
-# O(n) - time | O(n) - space : where n is the length of the string
+# O(n) - time | O(n) - space : where n is the length of the input string
 def balancedBrackets(string):
     # stack to keep track of opening brackets
 	stack = []
