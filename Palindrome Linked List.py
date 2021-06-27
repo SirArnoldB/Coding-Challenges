@@ -106,17 +106,41 @@ class Solution:
 
 # ************************************************************* #   
         
-#
-# Solution 2: Brute Force Method
-#
+'''
+Solution 2: Using another data structure
+----------
+# O(n) - time | O(n) - space: wher n is the numver of nodes in the inpu head
+'''
 class Solution:
     def isPalindrome(self, head: ListNode) -> bool:
-        #initialize a list to store the value in the List Node
-        node_list = []
-        
-        #get the elements of our Head node and store them in the list
+        # Algorithm
+        '''
+        # Sentence Summary
+            # Move the LinkedList data into an array and check if the array is a palindrome
+
+        1) Create an array
+        2) Iterate through the LinkedList and add the elements to the array
+        3) Check if the array is a palindrome with a two pointer solution
+            a) Left and Right pointers that move towards the center
+        4) If there are no mismatches, return True, else return False
+
+        # Time Complexity: O(N)
+        # Space Complexity: O(N)
+
+        # Cons: The solution adds the complexity of moving data to another data structure
+            Could we remove the need for that extra space?
+        '''
+        # array to store the elements of the linked list
+        nodeList = []
+        # for each node in head 
         while head:
-            node_list.append(head.val)
+            nodeList.append(head.val)
             head = head.next
-        #Check whether its a palindrome and return true, otherwise return false   
-        return node_list == node_list[::-1]
+        # check if array of a palindrome
+        left, right = 0, len(nodeList) - 1
+        while left < right:
+            # if there is a mismatch, return false 
+            if nodeList[left] != nodeList[right]:
+                return False 
+        # no mismatch found 
+        return True
