@@ -31,7 +31,7 @@ def longestBalancedSubstring(string):
 	# for every bracket in the string
 	for i in range(len(string)):
 		# if the char is an opening bracket, 
-		# add it to the indexStack
+		# add its index to the indexStack
 		if string[i] == "(":
 			indexStack.append(i)
 		else:
@@ -94,11 +94,11 @@ def longestBalancedSubstring(string):
             openingCount += 1
         else:
             closingCount += 1
-        # if bith counters are the same
+        # if the counters are the same
         if openingCount == closingCount:
             # update the maxLength
             maxLength = max(maxLength, openingCount * 2)
-        # if we have more opening parentheses than there closing 
+        # if we have more opening parentheses than there are closing 
         # reset the counters because we have an un matched parentheses
         elif openingCount > closingCount:
             openingCount = 0
