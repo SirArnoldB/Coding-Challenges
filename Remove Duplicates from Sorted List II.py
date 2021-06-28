@@ -19,14 +19,14 @@ Source: https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/
     >>> -100 <= Node.val <= 100
     >>> The list is guaranteed to be sorted in ascending order.
 '''
-
-# O(n) - time | O(1) - space: where n is the number of nodes in the head
-
 # Definition for singly-linked list.
 class ListNode(object):
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
+
+## Solution 1:
+    # O(n) - time | O(1) - space: where n is the number of nodes in the head
 class Solution(object):
     def deleteDuplicates(self, head):
         """
@@ -55,3 +55,36 @@ class Solution(object):
             head = head.next
         
         return sentinel.next
+
+## Solution 2:
+# 
+class Solution(object):
+    def deleteDuplicates(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        # Algorithm
+        '''
+        # Sentence Summary
+            # Use two pointers to set the first instance of a duplicate's 'next' to 
+            next unique element.
+
+        1) Establish two pointers
+        2) While the two pointers are not Null
+            a) Check if they have the same value
+            b) While they have the same value
+                i) Move one pointer until it reaches a next 
+            c) Re-assign the first duplicate's 'next' to the new node
+            d) Move both pointers to the new node
+
+        # Time Complexity: O(N)
+        # Space Complexity: O(1)
+        '''
+        stable, runner = head, head
+        while stable and runner:
+            while runner and runner.val == stable.val:
+                runner = runner.next
+            stable.next = runner
+            stable = runner
+        return head
