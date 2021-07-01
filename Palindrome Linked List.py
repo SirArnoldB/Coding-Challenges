@@ -58,12 +58,12 @@ class Solution:
         
         # get the reverse of a list 
         def getReverse(head):
-            # initialize current node to pointe to the head node
+            # initialize current node to point to the head node
             currentNode = head
             # initialize prevousNode to Null
             previousNode = None
             
-            # loop through  the head
+            # loop through  the current node 
             while currentNode:
                 # the next node 
                 nextNode = currentNode.next
@@ -93,7 +93,7 @@ class Solution:
         # reverse the remaning half of l2
         reversel2 = getReverse(l2)
         
-        # loop through l1, and reversel2. 
+        # Iterate through l1, and reversel2 in parallel 
         # compare values at each node
         while l1 and reversel2:
             # mismatch found 
