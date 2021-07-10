@@ -39,6 +39,16 @@ class Solution(object):
         :type tokens: List[str]
         :rtype: int
         """
+        ### Algorithm
+        """
+        # Algorithm
+            # For every element
+            # If the element is a number, push it onto the stack
+            # If the element is an operator, pop values from the stack. 
+            # Process the sub-expression and push the result back to the stack
+        # When there are no more elements to scan, the number in the stack is the result
+
+        """
         # operations set
         opsSet = {"+": operator.add, "-": operator.sub, "*": operator.mul, "/": operator.truediv}    
         
