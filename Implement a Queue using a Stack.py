@@ -40,6 +40,38 @@ Source:https://leetcode.com/problems/implement-queue-using-stacks/
     At most 100 calls will be made to push, pop, peek, and empty.
     All the calls to pop and peek are valid.
 '''
+
+### Algorithm 
+
+'''
+# 1-2 Sentence Summary
+Use 2 Stacks to pass data between to emulate a Queue
+
+# Constructor
+1) Create 2 Stacks, a main and a side
+
+# Push
+1) Push elements onto the main Stack, never the side
+
+# Pop
+1) Pop all elements off of the main Stack onto the side Stack, this reverses
+    element order to that of a Queue
+2) Pop top off side Stack into temporary variable
+3) Push all other elements from side stack onto main Stack, re-reversing elements
+4) Return element in temporary variable
+
+# Peek
+1) Return the first element in the main Stack by indexing (since DS is array)
+
+# Empty
+1) Return True if the length of the main Stack is 0, else False
+
+# Push/Enqueue Time Complexity: O(1)
+# Pop/Dequeue Time Complexity: O(N)
+# Peek Time Complexity: O(1) - Python, O(N) - Java
+# Empty Time Complexity: O(1)
+# Space Complexity: O(N)
+'''
 class MyQueue(object):
 
     def __init__(self):
