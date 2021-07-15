@@ -24,7 +24,7 @@ def compute(s):
         result.append(count)
 
 
-        // advance the two pointers
+        #  advance the two pointers
         i = j
         j = i + 1
 
