@@ -25,32 +25,36 @@ Headers are designated by (1-6) hashes followed by a space, followed by text.
 # Spaces before and after both the header content and the hashtag(s) should be ignored in the resulting output.
 """
 def markdown_parser(markdown):
-    # remove any trailing whitespaces 
-    markdown.strip()
+    # remove any trailing whitespaces
+    markdown = markdown.strip()
     # test
-    print(markdown)
-    
-    # function to insert the emphasis in the markdonw
-    def getAst(markdown):
-        # remove any trailing white spaces
-        markdown.strip()
-        # get the list markdonw
-        markdown = list(markdown)
+    # print(markdown)
 
+    # function to insert the emphasis in the markdonw
+    def getUnderscore(markdown):
+        # no underscores, or invalid count = 1
+        if markdown.count("_") == 0 or markdown.count("_") == 1: return markdown
+        # keep a copy of the original string
+        markCopy = markdown
+        # get the list markdown
+        markdown = list(markdown)
+        # emphasis tags
         openEm = "<em>"
         closeEm = "</em>"
 
         i = 0
         # count 0 - no emphais, count = 1 - we have had an openning emphasis
         count = 0
-
+        # for every character in markdown
         while i < len(markdown):
             if i == len(markdown) - 1:
-                if markdown[i] == "*" and markdown[i - 1] != " ":
-                    if count == 1:
+                if markdown[i] == "_":
+                    if markdown[i - 1] == " ":
+                        return markCopy
+                    else:
                         markdown[i] = closeEm
-            else:
-                if markdown[i] == "*" and markdown[i + 1] != " ":
+            else:   
+                if markdown[i] == "_":
                     if count == 1:
                         markdown[i] = closeEm
                         count = 0
@@ -66,7 +70,6 @@ def markdown_parser(markdown):
         # keeps track of the hashes
         count = 0
         i = 0
-
         # loop through the markdown
         while i < len(markdown):
             if count == 6:
@@ -83,9 +86,10 @@ def markdown_parser(markdown):
                     return (count, i )
                 else:
                     return ("Invalid Input!", 0)
-            i += 1
-    # get the new markdown
-    markdown = getAst(markdown)
+        i += 1
+
+    # first insert the emphasis if we have any, and they are valid:
+    markdown = getUnderscore(markdown)
 
     # get the hashes and content start
     hashesCount, contentStart = getHashes(markdown)
@@ -95,9 +99,13 @@ def markdown_parser(markdown):
     else:
         # mapping of the headers
         headers = {1: ["<h1>", "</h1>"], 2: ["<h2>", "</h2>"], 3: ["<h3>", "</h3>"], 4: ["<h4>", "</h4>"], 5: ["<h5>", "</h5>"], 6: ["<h6>", "</h6>"]}
+
         # get the content of the markdown
         content = markdown[contentStart:].strip()
+        content = content.strip("_")
+        # print(content)
     return headers[hashesCount][0] + content + headers[hashesCount][1]
+
 
 import unittest
 class Test(unittest.TestCase):

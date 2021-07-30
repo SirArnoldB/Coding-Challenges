@@ -28,9 +28,9 @@ def markdown_parser(markdown):
     # remove any trailing whitespaces 
     markdown.strip()
     # test
-    print(markdown)
+    # print(markdown)
 
-    # function to get the number of hashes
+    # get the number of hashes
     def getHashes(markdown):
         # keeps track of the hashes
         count = 0
@@ -51,6 +51,8 @@ def markdown_parser(markdown):
                     return (count, i )
                 else:
                     return ("Invalid Input!", 0)
+            # advance the counter 
+            i += 1
     
     # get the hashes and content start
     hashesCount, contentStart = getHashes(markdown)
