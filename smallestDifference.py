@@ -20,7 +20,7 @@ def smallestDifference(arrayOne, arrayTwo):
     
     while array_one_idx < len(arrayOne) and array_two_idx < len(arrayTwo):
         # find the absolute difference:
-        abs_diff = abs(arrayOne[array_one_idx] - arrayTwo[array_two_idx]) if arrayOne[array_one_idx] > arrayTwo[array_two_idx] else abs(arrayTwo[array_two_idx] - arrayOne[array_one_idx])
+        abs_diff = abs(arrayOne[array_one_idx] - arrayTwo[array_two_idx])
         # update the minimum difference
         if minimum_diff > abs_diff:
             minimum_diff = abs_diff
