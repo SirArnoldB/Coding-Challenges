@@ -29,8 +29,7 @@ def largestRange(array):
         # startIdx points to the first element in this range
         # start is the starting element in this range.
         start, startIdx = array[idx], idx
-        while (idx < len(array) - 1) and (array[idx] + 1 == array[idx + 1]
-                                          or array[idx] == array[idx + 1]):
+        while (idx < len(array) - 1) and (array[idx] + 1 == array[idx + 1] or array[idx] == array[idx + 1]):
             idx += 1
         # endIdx now points to the last element in this range
         # end is the last element of this range
