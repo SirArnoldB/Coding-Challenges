@@ -25,6 +25,9 @@ Constraints:
     # 1 <= arr.length <= 1000
     # -1000 <= arr[i] <= 1000
 """
+
+
+# O(nlogn) - time | O(n) - space: where n is the number of elements in arr
 class Solution(object):
     def uniqueOccurrences(self, arr):
         """
@@ -43,28 +46,22 @@ class Solution(object):
             - else, add count to the occurrences dict
             - and change count to 1
         '''
-        arr.sort() # O(nlogn) - time
-        # keeps track of the occurrences of each number
+        # keeps track of occurences of each number.
         occurrences = {}
-        # keeps track of the current index in the arr
-        i = 0
-        # initialize count to 1, because when we are at a certain number, 
-        # we have one occurence of that number already
-        count = 1
-        while i < len(arr) - 1:
-            # since the array is sorted, 
-            # we can easiy compare the number at the current index with the next one in the arr
-            if arr[i] == arr[i + 1]:
+        # sorting numbers in ascending order makes it easy to compare at number at i with that at i + 1.
+        arr.sort()
+
+        idx, count = 0, 1
+        while idx < len(arr) - 1:
+            if arr[idx] == arr[idx + 1]:
                 count += 1
             else:
                 if count in occurrences:
                     return False
                 occurrences[count] = True
                 count = 1
-                
-            i += 1
-            
-            if i == len(arr) - 1:
+            idx += 1
+            if idx == len(arr) - 1:
                 if count in occurrences:
                     return False
                 occurrences[count] = True
