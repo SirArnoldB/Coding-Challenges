@@ -18,6 +18,7 @@ Largest Range
 
 """
 
+### Solution 1
 
 # O(nlogn) - time | O(1) - space: where n is the number of elements in the array
 def largestRange(array):
@@ -29,8 +30,7 @@ def largestRange(array):
         # startIdx points to the first element in this range
         # start is the starting element in this range.
         start, startIdx = array[idx], idx
-        while (idx < len(array) - 1) and (array[idx] + 1 == array[idx + 1]
-                                          or array[idx] == array[idx + 1]):
+        while (idx < len(array) - 1) and (array[idx] + 1 == array[idx + 1] or array[idx] == array[idx + 1]):
             idx += 1
         # endIdx now points to the last element in this range
         # end is the last element of this range
@@ -43,3 +43,41 @@ def largestRange(array):
         ] if (end - start) > (largeRange[1] - largeRange[0]) else largeRange
         idx += 1
     return largeRange
+
+## Soltuion 2
+
+# O(n) - time | O(n) - space: where n is the length of the array
+def largestRange(array):
+    # holds the largest range
+    bestRange = []
+    # keeps track of the longest length 
+    longestLength = 0
+    # holds all the numbers in the array
+    nums = {}
+    for num in array:
+        nums[num] = True 
+    for num in array:
+        # check if the number has already been explored:
+        if not nums[num]:
+            continue 
+        nums[num] = False 
+        currentLength = 1
+        left, right = num - 1, num + 1
+        while left in nums:
+            nums[left] = False 
+            currentLength += 1
+            left -= 1
+        while right in nums:
+            nums[right] = False 
+            currentLength += 1
+            right += 1
+        if currentLength > longestLength:
+            longestLength = currentLength 
+            bestRange = [left + 1, right - 1]
+    return bestRange
+
+
+
+
+
+

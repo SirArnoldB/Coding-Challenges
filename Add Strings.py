@@ -45,18 +45,19 @@ class Solution(object):
             # if p2 has reached the beginning of num2, set x2 to 0
             x2 = ord(num2[p2]) - ord('0') if p2 >= 0 else 0
             
-            # computer the sum of the two digits
+            # compute the sum of the two digits
             value = (x1 + x2 + carry) % 10
-            # computer the remainder 
+            # compute the remainder 
             carry = (x1 + x2 + carry) // 10
             # insert the vakue into thw re list 
-            res.insert(0, str(value))
+            res.append(str(value))
             # advance the pointers
             p1 -= 1
             p2 -= 1
         
         # if the carry is still non-zero, we update the result
         if carry:
-            res.insert(0, str(carry))
+            res.append(str(carry))
+        res = res[::-1]
         # return res list as a string 
         return ''.join(res)

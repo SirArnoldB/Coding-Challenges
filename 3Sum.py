@@ -34,9 +34,9 @@ class Solution:
         triplets = []
         targetSum = 0
         
-        # fix the first numberwith the outer for loop
+        # fix the first number with the outer for loop
         for i in range(len(nums) - 2):
-            # left and right indexes to fix the other two numbers
+            # fix the other two numbers with the left and right indexes
             left_idx = i + 1
             right_idx = len(nums) - 1
             # move the left and right indexes towards each other until they meet/pass each other 
