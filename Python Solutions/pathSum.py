@@ -9,11 +9,20 @@ https://leetcode.com/problems/path-sum/
 
 Examples:
 *********
-
+                    5
+                  /   \
+                 4     8
+                /     /  \
+              11     13   4
+             /  \           \
+            7    2            1
 Input: root = [5,4,8,11,null,13,4,7,2,null,null,null,1], targetSum = 22
 Output: true
 ______________
 
+        1
+      /   \
+     2     3 
 Input: root = [1,2,3], targetSum = 5
 Output: false
 ______________
