@@ -70,3 +70,59 @@ def calculateBranchSums(node, runningSum, sums):
     # recursive calls on the left and right child nodes
     calculateBranchSums(node.left, newRunningSum, sums)
     calculateBranchSums(node.right, newRunningSum, sums)
+
+# ***************************************************************** # 
+
+# Solution 2:
+
+# ***************************************************************** # 
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution: 
+    def hasPathSum(self, root, targetSu):
+        if not root:
+            return False 
+        if not root.left and not root.right and root.val == targetSum:
+            return True 
+        
+        targetSum -= root.val
+        
+        return self.hasPathSum(root.left, targetSum) or self.hasPathSum(root.right, targetSum)
+    
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
+
+# ***************************************************************** # 
+
+# Solution 3:
+
+# ***************************************************************** # 
+
+class Solution: 
+    def hasPathSum(self, root, targetSum):
+        if not root:
+            return False 
+        
+        stack = [(root, root.val)]
+        
+        while stack:
+            curr, val = stack.pop()
+            if not curr.left and not curr.right and val == targetSum:
+                return True
+            if curr.right:
+                stack.append((curr.right, val + curr.right.val))
+            if curr.left:
+                stack.append((curr.left, val + curr.left.val))
+        return False 
+    
