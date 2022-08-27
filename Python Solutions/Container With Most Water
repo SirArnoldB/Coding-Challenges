@@ -1,0 +1,20 @@
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+    #I Initialized the result, wheich return the maximum area to zero
+        res = 0
+        #I made the left pointer start from index 0 and the right pointer at the end of the array
+        left , right = 0, len(height)-1
+        #This is the condition to make sure the area is calculated with the bound
+        while left < right:
+        #I calculated the area by getting the width and the minimum heights between left and the right pointer
+            area = (right - left) * min(height[left], height[right])
+            #I got the maximum area
+            res = max(area, res)
+            # This was necessary because the left and right pointer moves through the height once
+            if height[left] < height[right]:
+                left += 1
+            else:
+                right -= 1
+            #I returned the maximum result
+        return res
+                
