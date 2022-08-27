@@ -19,9 +19,14 @@ class Solution:
         Return the majority element that appears more than ⌊n/2⌋ times.
         Assumes that the majority element always exists in the array.
         """
+        # Keeps track of the majority element
         candidate = None
+        # keeps track of the count of the majority element
         count = 0
         for num in nums:
+            # when count is zero, consider the current num as the candidate
             candidate = num if count == 0 else candidate
+            # update the count for the majority element
             count += 1 if num == candidate else -1
+        # the candidate now has the majority element
         return candidate
