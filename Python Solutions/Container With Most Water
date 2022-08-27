@@ -12,8 +12,10 @@ class Solution:
             res = max(area, res)
             # This was necessary because the left and right pointer moves through the height once
             if height[left] < height[right]:
+            # I incremented the left pointer because I am looking for the highest height and since the height at the left index is less then the right index, I have to move the left pointer to the right
                 left += 1
             else:
+            #  If the height at the right index is less the left index, I decremented the right pointer to check for the next height which is greater than the previous height, and if the heights are equal, the left pointer can be incremented or the right pointer can be decremented
                 right -= 1
         return res
                 
