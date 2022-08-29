@@ -1,6 +1,9 @@
 class Solution:
     def sortColors(self, nums: List[int]) -> None:
-        """Sorts nums in place, putting objects of the same color adjacent to each other."""
+        """Sorts nums in place, putting objects of the same color adjacent to each other.
+        
+        Source: https://leetcode.com/problems/sort-colors/?envType=study-plan&id=data-structure-ii
+        """
         
         # left and right pointers to partition nums
         # left(values < 1) | middle(values = 1) | right(values > 1)
