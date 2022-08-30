@@ -7,7 +7,6 @@ Output: [0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2,]
 '''
 
 def swap(A, i , j):
-    print(i, j, A)
     A[i], A[j] = A[j], A[i]
 
 # linear time partition routine to sort a list containing 0, 1, and 2
