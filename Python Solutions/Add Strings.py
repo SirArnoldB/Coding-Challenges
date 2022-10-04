@@ -21,6 +21,9 @@ Source: https://leetcode.com/problems/add-strings/
     num1 and num2 consist of only digits.
     num1 and num2 don't have any leading zeros except for the zero itself.
 '''
+from math import remainder
+
+
 class Solution(object):
     def addStrings(self, num1, num2):
         """
@@ -28,10 +31,8 @@ class Solution(object):
         :type num2: str
         :rtype: str
         """
-        # array to keep track of the sum
-        res = []
-        # carry to keep track of the remainder after adding two values
-        carry = 0
+        resultant_sumultant_sum = []
+        remainder = 0
         # set two pointers to the end of each string, 
         # digit - by - digit addition 
         p1 = len(num1) - 1
@@ -46,18 +47,16 @@ class Solution(object):
             x2 = ord(num2[p2]) - ord('0') if p2 >= 0 else 0
             
             # compute the sum of the two digits
-            value = (x1 + x2 + carry) % 10
+            value = (x1 + x2 + remainder) % 10
             # compute the remainder 
-            carry = (x1 + x2 + carry) // 10
-            # insert the vakue into thw re list 
-            res.append(str(value))
+            remainder = (x1 + x2 + remainder) // 10
+            resultant_sum.append(str(value))
             # advance the pointers
             p1 -= 1
             p2 -= 1
         
-        # if the carry is still non-zero, we update the result
-        if carry:
-            res.append(str(carry))
-        res = res[::-1]
-        # return res list as a string 
-        return ''.join(res)
+        # if the remainder is still non-zero, we update the resultant_sum
+        if remainder:
+            resultant_sum.append(str(remainder))
+        resultant_sum = resultant_sum[::-1]
+        return ''.join(resultant_sum)

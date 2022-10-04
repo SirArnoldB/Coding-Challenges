@@ -48,3 +48,12 @@ def balancedBrackets(string):
 	# In the end, if the stack is empty, then we have a valid expression.
 	# The stack won't be empty for cases like ((()
 	return not stack
+
+import unittest
+
+class TestBalancedBrackets(unittest.TestCase):
+	def balancedBrackets(self):
+		self.assertEquals(balancedBrackets("([])(){}(())()()"), True)
+
+if __name__ == "__main__":
+	unittest.main()
