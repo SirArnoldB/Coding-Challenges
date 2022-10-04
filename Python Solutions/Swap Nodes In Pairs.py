@@ -1,4 +1,4 @@
-'''
+"""
 # Swap Nodes in Pairs
 ---------------------
 Source: https://leetcode.com/problems/swap-nodes-in-pairs/
@@ -21,7 +21,7 @@ Source: https://leetcode.com/problems/swap-nodes-in-pairs/
 # Constraints:
     >>> The number of nodes in the list is in the range [0, 100].
     >>> 0 <= Node.val <= 100
-'''
+"""
 
 
 # Definition for singly-linked list.
@@ -38,23 +38,25 @@ class Solution(object):
         :rtype: ListNode
         """
         # Initialize everything
-        dummyNode = ListNode(0, head)
+        dummy_node = ListNode(0, head)
         # the node before the next pair of numbers
-        beforeNode = dummyNode
+        before_node = dummy_node
 
         # for each pair of adjacent nodes
-        while beforeNode.next != None and beforeNode.next.next:  # as long as there are two nodes ahead
+        while (
+            before_node.next != None and before_node.next.next
+        ):  # as long as there are two nodes ahead
             # set up temporary pointers to the two nodes
-            firstNode = beforeNode.next
-            secondNode = beforeNode.next.next
+            first_node = before_node.next
+            second_node = before_node.next.next
 
             # do pointer re-arrangement
-            beforeNode.next = secondNode
-            firstNode.next = secondNode.next
-            secondNode.next = firstNode
+            before_node.next = second_node
+            first_node.next = second_node.next
+            second_node.next = first_node
 
             # Move everything forward to the next pair
-            beforeNode = firstNode
+            beforeNode = first_node
 
         # dummyNode.next is the beginning of the re-arranged list
-        return dummyNode.next
+        return dummy_node.next

@@ -65,23 +65,38 @@
 # s consists of English letters (lower-case and upper-case), digits (0-9), ' ', '+', '-', and '.'.
 
 
-class Solution:
-    def myAtoi(self, s: str) -> int:
-        sign, base, s_idx = 1, 0, 0
-        MAX_LIMIT = 2**31 - 1
+def myAtoi(s: str) -> int:
+    sign, base, s_idx = 1, 0, 0
+    MAX_LIMIT = 2**31 - 1
 
-        # ignore whitespace
-        while s_idx < len(s) and s[s_idx] == " ":
-            s_idx += 1
+    # ignore whitespace
+    while s_idx < len(s) and s[s_idx] == " ":
+        s_idx += 1
 
-        # check the sign
-        if s_idx < len(s) and (s[s_idx] == "-" or s[s_idx] == "+"):
-            sign = 1 - 2 * (s[s_idx] == "-")
-            s_idx += 1
+    # check the sign
+    if s_idx < len(s) and (s[s_idx] == "-" or s[s_idx] == "+"):
+        sign = 1 - 2 * (s[s_idx] == "-")
+        s_idx += 1
 
-        while s_idx < len(s) and s[s_idx].isdigit():
-            base = 10 * base + (ord(s[s_idx]) - ord("0"))
-            if base > MAX_LIMIT:
-                return MAX_LIMIT if sign == 1 else -(MAX_LIMIT + 1)
-            s_idx += 1
-        return base * sign
+    while s_idx < len(s) and s[s_idx].isdigit():
+        base = 10 * base + (ord(s[s_idx]) - ord("0"))
+        if base > MAX_LIMIT:
+            return MAX_LIMIT if sign == 1 else -(MAX_LIMIT + 1)
+        s_idx += 1
+    return base * sign
+
+
+import unittest
+
+
+class TestMyAtoi(unittest.TestCase):
+    def testIntergerString(self):
+        self.assertEqual(myAtoi("42"), 42)
+        self.assertEqual(myAtoi("-42"), -42)
+
+    def testIntergerWithWords(self):
+        self.assertEqual(myAtoi("4193 with words"), 4193)
+        self.assertEqual(myAtoi("-5000 negative number "), -5000)
+
+if __name__ == "__main__":
+    unittest.main()

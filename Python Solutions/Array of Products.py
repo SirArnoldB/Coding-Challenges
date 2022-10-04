@@ -19,7 +19,7 @@
 # // 10 is equal to 5 x 1 x 2
 # // 20 is equal to 5 x 1 x 4
 '''
-# O(n) - time | O(n) - space : where n is the length of the inpu array
+# O(n) - time | O(n) - space : where n is the length of the input array
 def arrayOfProducts(array):
     products = [0 for _ in range(len(array))]
     leftProducts = [0 for _ in range(len(array))]
@@ -39,3 +39,12 @@ def arrayOfProducts(array):
         products[i] = leftProducts[i] * rightProducts[i]
         
     return products
+
+import unittest
+
+class TestArrayOfProducts(unittest.TestCase):
+    def test_valid_input(self):
+        self.assertEquals(arrayOfProducts([5, 1, 4, 2]), [8, 40, 10, 20])
+
+if __name__ == "__main__":
+    unittest.main()
