@@ -24,18 +24,12 @@ Source: https://leetcode.com/problems/remove-duplicates-from-sorted-list/
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+
 class Solution(object):
     def deleteDuplicates(self, head):
         """
         :type head: ListNode
         :rtype: ListNode
-        """
-        # Algorithm
-        """
-        - initialize a tail node and make it equal to the head node
-        - Loop through the tail node, 
-        - compare the current node vakue to the next node value, 
-        - if they are the same, point the pointer to the next node 
         """
         # initialize the tail node
         tailNode = head 

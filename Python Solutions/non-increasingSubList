@@ -1,0 +1,88 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+def countIncreasingElements(head):
+    # Traverse the list and keep track of
+    # max non increasing and current non-increasing lengths
+    curr_len = 1
+    max_len = 1
+    total_count = 1
+    res_index = 0
+    curr = head
+    while(curr.next != None):
+        # Compare head.data with head.next.data
+        if (curr.data >= curr.next.data):
+            curr_len = curr_len + 1
+        else:
+            # compare maximum length with len.
+            if (max_len < curr_len):
+                max_len = curr_len
+                res_index = total_count - curr_len
+            curr_len = 1
+        
+        total_count = total_count + 1
+        curr = curr.next
+	
+    if (max_len < curr_len):
+        max_len = curr_len
+        res_index = total_count - max_len
+
+    # Traverse the list again to get the non-increasing sublist
+    i = 0
+    sub_list = Node(0)
+    sub_list_tail = sub_list
+
+    curr = head
+    while(curr != None):
+        if (i == res_index):
+            while (max_len > 0):
+                sub_list_tail.next = Node(curr.data)
+                sub_list_tail = sub_list_tail.next
+                curr = curr.next
+                max_len = max_len - 1
+            break
+        i = i + 1
+        curr = curr.next
+    # sub_list_tail.next = None
+    return sub_list.next
+
+# Function to insert an element
+# at the beginning
+def push(head, data):
+	newNode = Node(data)
+	newNode.data = data
+	newNode.next = head
+	head = newNode
+	return head
+
+# Display linked list.
+def printList(node) :
+	while (node != None):
+		print(node.data, end = " ")
+		node = node.next
+	
+	print()
+
+# Driver Code
+if __name__=='__main__':
+
+    # Create a node and initialize with None
+    head = None
+
+    # push() insert node in linked list.
+    # 15 . 18 . 5 . 8 . 11 . 12
+    head = push(head, 12)
+    head = push(head, 11)
+    head = push(head, 8)
+    head = push(head, 4)
+    head = push(head, 5)
+    head = push(head, 5)
+    head = push(head, 18)
+    head = push(head, 15)
+    print("Linked list:")
+    printList(head)
+
+    # Function call countIncreasingElements(head)
+    printList(countIncreasingElements(head))
