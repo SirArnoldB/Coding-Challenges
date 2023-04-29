@@ -13,7 +13,7 @@ Given an integer array nums, return all the triplets `[nums[i], nums[j], nums[k]
 
 Notice that the solution set must not contain duplicate triplets.
 
-### Example 1:
+## Example 1:
 
 ```
 Input: nums = [-1,0,1,2,-1,-4]
@@ -29,7 +29,7 @@ The distinct triplets are [-1,0,1] and [-1,-1,2].
 Notice that the order of the output and the order of the triplets does not matter.
 ```
 
-### Example 2:
+## Example 2:
 
 ```
 
@@ -39,7 +39,7 @@ Explanation: The only possible triplet does not sum up to 0.
 
 ```
 
-### Example 3:
+## Example 3:
 
 ```
 
@@ -49,7 +49,7 @@ Explanation: The only possible triplet sums up to 0.
 
 ```
 
-### Constraints:
+## Constraints:
 
 ```
 
@@ -63,11 +63,11 @@ Explanation: The only possible triplet sums up to 0.
 
 {% tab title="Solution 1 Walkthrough" %}
 
-# Intuition
+## Intuition
 
 > The problem requires finding all the unique triplets that sum up to zero. A brute-force approach would require three nested loops, which would result in a time complexity of `O(n^3)`. However, we can optimize the solution by sorting the array first and then applying a two-pointer approach. This reduces the time complexity to `O(n^2)`.
 
-# Approach
+## Approach
 
 > Firstly, we `sort` the input array. After sorting, we can use a pointer at the start and another at the end of the array. We then use a third pointer, which we will call the `middle` pointer, which starts at the position of the first pointer plus one.
 
@@ -81,7 +81,7 @@ Explanation: The only possible triplet sums up to 0.
 
 > We also check for duplicate values at the start pointer by comparing it to its previous value.
 
-# Complexity
+## Complexity
 
 - Time complexity: `O(n^2)`
 
@@ -90,7 +90,7 @@ Explanation: The only possible triplet sums up to 0.
 - Space complexity: `O(1)`
   > We use constant space for storing pointers and variables, and we do not create any new data structures. Therefore, the space complexity is `O(1)`.
 
-# Code
+## Code
 
 {% code lineNumbers="true" %}
 
