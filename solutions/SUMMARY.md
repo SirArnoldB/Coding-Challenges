@@ -7,7 +7,10 @@
 
 ## Problems & Solutions
 
-* [Arrays](problems-and-solutions/arrays.md)
+* [Arrays](problems-and-solutions/arrays/README.md)
+  * [Two Number Sum](problems-and-solutions/arrays/two-number-sum.md)
+  * [Validate Subsequence](problems-and-solutions/arrays/validate-subsequence.md)
+  * [Spiral Traverse](problems-and-solutions/arrays/spiral-traverse.md)
 * [Binary Trees](problems-and-solutions/binary-trees.md)
 * [Binary Search Trees](problems-and-solutions/binary-search-trees.md)
 * [Dynamic Programming](problems-and-solutions/dynamic-programming.md)
