@@ -98,5 +98,3 @@ function binarySearch(arr, target) {
 {% endcode %}
 {% endtab %}
 {% endtabs %}
-
-\
