@@ -1,4 +1,4 @@
-'''
+"""
 # Number of Islands
 -------------------
 Source: https://leetcode.com/problems/number-of-islands/
@@ -33,29 +33,36 @@ Source: https://leetcode.com/problems/number-of-islands/
     # n == grid[i].length
     # 1 <= m, n <= 300
     # grid[i][j] is '0' or '1'.
-'''
-class Solution(object):
-    def numIslands(self, grid):
-        """
-        :type grid: List[List[str]]
-        :rtype: int
-        """
-        if not grid:
-            return 0
-        
-        count = 0
-        for i in range(len(grid)):
-            for j in range(len(grid[0])):
-                if grid[i][j] == '1':
-                    self.dfs(grid, i, j)
-                    count += 1
-        return count 
-    
-    def dfs(self, grid, i, j):
-        if i < 0 or j < 0 or i >= len(grid) or j >= len(grid[0]) or grid[i][j] != '1':
-            return 
-        grid[i][j] = '#'
-        self.dfs(grid, i + 1, j)
-        self.dfs(grid, i - 1, j)
-        self.dfs(grid, i, j + 1)
-        self.dfs(grid, i, j - 1)
+"""
+
+
+class Solution:
+    def cellNotValid(self, grid, row, col, rows, cols):
+        return row < 0 or col < 0 or row >= rows or col >= cols or grid[row][col] != "1"
+
+    def dfs(self, grid, row, col, rows, cols):
+        if self.cellNotValid(grid, row, col, rows, cols):
+            return
+
+        directions = [(1, 0), (0, 1), (-1, 0), (0, -1)]
+
+        grid[row][col] = "#"
+
+        for dir in directions:
+            self.dfs(grid, row + dir[0], col + dir[1], rows, cols)
+
+    def numIslands(self, grid: list[list[str]]) -> int:
+        num_islands = 0
+
+        rows = len(grid)
+        cols = len(grid[0])
+
+        for row in range(rows):
+            for col in range(cols):
+                if grid[row][col] == "1":
+                    # find all the connecting ones
+                    self.dfs(grid, row, col, rows, cols)
+                    # increment the island count
+                    num_islands += 1
+
+        return num_islands

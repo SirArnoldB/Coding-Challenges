@@ -32,7 +32,8 @@ Solution 1 : Floyd's Tortoise and Hare (Cycle Detection)
 
     >>> Note that the intersection point is not the cycle entrance in the general case.
 
->>> To compute the intersection point, let's note that the hare has traversed twice as many nodes as the         >>>> tortoise, i.e. 2d(tortoise) = d(hare), that means
+>>> To compute the intersection point, let's note that the hare has traversed twice as many nodes as the        
+>>>> tortoise, i.e. 2d(tortoise) = d(hare), that means
 
     # 2(F + a) = F + nC + a2(F+a)=F+nC+a, where nn is some integer.
     # Hence the coordinate of the intersection point is F + a = nCF+a=nC.
@@ -88,7 +89,10 @@ class Solution(object):
         
         
         """
-        Proving that at least one duplicate must exist in nums is simple application of the pigeonhole principle.         Here, each number in nums is a "pigeon" and each distinct number that can appear in nums is a                     "pigeonhole". Because there are n+1n+1 numbers are nn distinct possible numbers, the pigeonhole principle         implies that at least one of the numbers is duplicated.
+        Proving that at least one duplicate must exist in nums is simple application of the pigeonhole principle.         
+        Here, each number in nums is a "pigeon" and each distinct number that can appear in nums is a                     
+        "pigeonhole". Because there are n+1n+1 numbers are nn distinct possible numbers, the pigeonhole principle         
+        implies that at least one of the numbers is duplicated.
         """
         # sort the numbers in place; O(nlogn) - time 
         # If the numbers are sorted, then any duplicate numbers will be adjacent in the sorted array.

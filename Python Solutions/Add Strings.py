@@ -25,13 +25,8 @@ from math import remainder
 
 
 class Solution(object):
-    def addStrings(self, num1, num2):
-        """
-        :type num1: str
-        :type num2: str
-        :rtype: str
-        """
-        resultant_sumultant_sum = []
+    def addStrings(self, num1: str, num2: str)-> str:
+        resultant__sum = []
         remainder = 0
         # set two pointers to the end of each string, 
         # digit - by - digit addition 
