@@ -2,7 +2,8 @@
 
 ## Templates
 
-* [🚀 Two Pointers](README.md)
+* [🚀 Binary Search](README.md)
+* [🚀 Two Pointers](templates/two-pointers.md)
 
 ## Problems & Solutions
 

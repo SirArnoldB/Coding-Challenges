@@ -1,30 +1,34 @@
 ---
-description: Two Pointers Common Patterns
+description: Binary Search Common Patterns
 ---
 
-# 🚀 Two Pointers
-
-**Two pointers: One input, Opposite ends**
+# 🚀 Binary Search
 
 {% tabs %}
 {% tab title="Python" %}
 {% code lineNumbers="true" %}
 ```python
-def fn(arr):
-    # initialize left pointer, right pointer, and answer variable
-    left = ans = 0
-    right = len(arr) - 1
-
-    # loop until left pointer is less than right pointer
-    while left < right:
-        # do some logic here with left and right
-        if CONDITION:
-            left += 1
-        else:
-            right -= 1
+def binary_search(arr: List[int], target: int) -> int:
+    # initialize left and right pointers
+    left, right = 0, len(arr) - 1
+    # initialize a variable to store the index of first true value
+    first_true_index = -1
     
-    # return the answer
-    return ans
+    # loop until left pointer is less than or equal to right pointer
+    while left <= right:
+        # calculate mid index
+        mid = (left + right) // 2
+        # check if mid is feasible
+        if feasible(mid):
+            # if mid is feasible, update first_true_index and move left pointer to mid-1
+            first_true_index = mid
+            right = mid - 1
+        else:
+            # if mid is not feasible, move left pointer to mid+1
+            left = mid + 1
+    
+    # return the index of first true value
+    return first_true_index
 
 ```
 {% endcode %}
@@ -33,23 +37,29 @@ def fn(arr):
 {% tab title="C++" %}
 {% code lineNumbers="true" %}
 ```cpp
-int fn(vector<int>& arr) {
-    // initialize left pointer, right pointer, and answer variable
-    int left = ans = 0;
-    int right = arr.size() - 1;
-
-    // loop until left pointer is less than right pointer
-    while (left < right) {
-        // do some logic here with left and right
-        if (CONDITION) {
-            left += 1;
+int binary_search(vector<int>& arr, int target) {
+    // initialize left and right pointers
+    int left = 0, right = arr.size() - 1;
+    // initialize a variable to store the index of first true value
+    int first_true_index = -1;
+    
+    // loop until left pointer is less than or equal to right pointer
+    while (left <= right) {
+        // calculate mid index
+        int mid = left + (right - left) / 2;
+        // check if mid is feasible
+        if (feasible(mid)) {
+            // if mid is feasible, update first_true_index and move right pointer to mid-1
+            first_true_index = mid;
+            right = mid - 1;
         } else {
-            right -= 1;
+            // if mid is not feasible, move left pointer to mid+1
+            left = mid + 1;
         }
     }
     
-    // return the answer
-    return ans;
+    // return the index of first true value
+    return first_true_index;
 }
 
 ```
@@ -59,26 +69,34 @@ int fn(vector<int>& arr) {
 {% tab title="JavaScript" %}
 {% code lineNumbers="true" %}
 ```javascript
-function fn(arr) {
-    // initialize left pointer, right pointer, and answer variable
-    let left = ans = 0;
-    let right = arr.length - 1;
-
-    // loop until left pointer is less than right pointer
-    while (left < right) {
-        // do some logic here with left and right
-        if (CONDITION) {
-            left += 1;
+function binarySearch(arr, target) {
+    // initialize left and right pointers
+    let left = 0, right = arr.length - 1;
+    // initialize a variable to store the index of first true value
+    let firstTrueIndex = -1;
+    
+    // loop until left pointer is less than or equal to right pointer
+    while (left <= right) {
+        // calculate mid index
+        let mid = Math.floor((left + right) / 2);
+        // check if mid is feasible
+        if (feasible(mid)) {
+            // if mid is feasible, update firstTrueIndex and move right pointer to mid-1
+            firstTrueIndex = mid;
+            right = mid - 1;
         } else {
-            right -= 1;
+            // if mid is not feasible, move left pointer to mid+1
+            left = mid + 1;
         }
     }
     
-    // return the answer
-    return ans;
+    // return the index of first true value
+    return firstTrueIndex;
 }
 
 ```
 {% endcode %}
 {% endtab %}
 {% endtabs %}
+
+\
