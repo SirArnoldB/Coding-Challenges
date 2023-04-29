@@ -2,7 +2,7 @@
 
 ## Templates
 
-* [Binary Search](README.md)
+* [🚀 Binary Search](README.md)
 
 ## Problems & Solutions
 
