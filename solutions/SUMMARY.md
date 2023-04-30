@@ -10,6 +10,7 @@
 ## Problems & Solutions
 
 * [Arrays](problems-and-solutions/arrays.md)
+  * [3Sum](problems-and-solutions/arrays/3Sum.md)
   * [Two Number Sum](problems-and-solutions/arrays/two-number-sum.md)
   * [Validate Subsequence](problems-and-solutions/arrays/validate-subsequence.md)
   * [Spiral Traverse](problems-and-solutions/arrays/spiral-traverse.md)
