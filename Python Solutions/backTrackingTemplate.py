@@ -1,4 +1,4 @@
-'''
+"""
 # How to implement a backtracking algorithm
 
     ### Draw the tree, draw the tree, draw the tree!!!
@@ -30,8 +30,6 @@ def dfs(start_index, path):
     # is_leaf
     # get_edges
     
-which correspond to the two questions above.
-
 # Template v1.1
 
 def dfs(start_index, path):
@@ -73,4 +71,4 @@ def dfs(start_index, path, [...additional states]):
         # revert(...additional states) if necessary e.g. permutations
         path.pop()
 
-'''
+"""

@@ -33,6 +33,9 @@
 # -105 <= candyType[i] <= 105
 """
 # O(n) - time | O(n) - space: where n is the number of candyTypes
+from typing import List
+
+
 class Solution:
     def distributeCandies(self, candyType: List[int]) -> int:
         numUniqueCandies, n = 0, len(candyType)//2

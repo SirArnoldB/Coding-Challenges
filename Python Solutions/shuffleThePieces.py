@@ -1,4 +1,4 @@
-'''
+"""
 
 # Your task to check whether it is possible to construct a given array of integers from a bunch of given pieces.
 
@@ -50,20 +50,19 @@
 
 # Return true if it's possible to rearrange the arrays of pieces and concatenate them, such that the resulting array is equal to arr, otherwise return false.
 
-'''
+"""
 from itertools import permutations, chain
 
+
 def shuffleThePieces(arr, pieces):
-    # we have arr 
+    # we have arr
     # pieces - contains integer arrays
-    # can we concate arrays in pieces to form arr? 
+    # can we concate arrays in pieces to form arr?
     # maintain the order of arr
     allPieces = []
     piecesPerm = [allPieces.append(list(piece)) for piece in permutations(pieces)]
-    
+
     for piece in allPieces:
         if list(chain(*piece)) == arr:
             return True
-    return False 
-    
-    
+    return False

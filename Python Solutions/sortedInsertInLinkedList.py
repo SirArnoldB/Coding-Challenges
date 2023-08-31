@@ -1,4 +1,4 @@
-'''
+"""
 
 Insert a node to its correct sorted position in a sorted linked list
 
@@ -8,10 +8,11 @@ Insert a node to its correct sorted position in a sorted linked list
 
 # Solutions
 -----------
-'''
+"""
 
-# 1. Naive Approach 
+# 1. Naive Approach
 #######################
+
 
 # A Linked List Node
 class Node:
@@ -22,7 +23,6 @@ class Node:
 
 # Helper function to print a given linked list
 def printList(head):
-
     ptr = head
     while ptr:
         print(ptr.data, end=" —> ")
@@ -33,7 +33,6 @@ def printList(head):
 # Function to insert a given node at its correct sorted position into
 # a given list sorted in increasing order
 def sortedInsert(head, newNode):
-
     # special case for the head end
     if head is None or head.data >= newNode.data:
         newNode.next = head
@@ -51,10 +50,7 @@ def sortedInsert(head, newNode):
     return head
 
 
-
-
-if __name__ == '__main__':
-
+if __name__ == "__main__":
     # input keys
     keys = [2, 4, 6, 8]
 
@@ -70,7 +66,6 @@ if __name__ == '__main__':
     head = sortedInsert(head, Node(1))
     head = sortedInsert(head, Node(20))
     head = sortedInsert(head, Node(-20))
-
 
     # print linked list
     printList(head)

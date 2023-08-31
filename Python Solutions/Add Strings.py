@@ -41,10 +41,12 @@ class Solution(object):
             # if p2 has reached the beginning of num2, set x2 to 0
             x2 = ord(num2[p2]) - ord('0') if p2 >= 0 else 0
             
-            # compute the sum of the two digits
-            value = (x1 + x2 + remainder) % 10
-            # compute the remainder 
-            remainder = (x1 + x2 + remainder) // 10
+            # comopute the current sum 
+            cur_sum = x1 + x2 + remainder
+
+            value =  cur_sum % 10
+            remainder = cur_sum // 10
+
             resultant_sum.append(str(value))
             # advance the pointers
             p1 -= 1
